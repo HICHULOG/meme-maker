@@ -1,17 +1,77 @@
+@import "reset.css";
+
+body {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: gainsboro;
+  padding: 20px;
+}
+
 canvas {
   width: 800px;
   height: 800px;
-  border: 5px solid black;
+  background-color: white;
+  border-radius: 10px;
 }
 
-body{
+.btns {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.color-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   align-items: center;
 }
 
 .color-option {
   width: 50px;
   height: 50px;
+  border: 5px solid white;
+  border-radius: 50%;
   cursor: pointer;
+  transition: transform ease-in-out 0.1s;
+}
+
+.color-option:hover {
+  transform: scale(1.2);
+}
+
+input#color {
+  background-color: white;
+}
+
+label,
+button {
+  all: unset;
+  padding: 10px 0px;
+  text-align: center;
+  background-color: royalblue;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: opacity linear .1s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+input#file {
+  display: none;
+}
+
+input#text {
+  all: unset;
+  padding: 10px 0px;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 500;
+  background-color: white;
 }
