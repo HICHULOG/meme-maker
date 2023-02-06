@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meme Maker</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter&family=Nanum+Pen+Script&family=Noto+Serif&family=Poppins&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="color-options">
@@ -84,7 +90,43 @@
         📸 Add Photo
         <input type="file" accept="image/*" id="file"
       /></label>
-      <input type="text" placeholder="Add text here... :)" id="text" />
+      <div class="font-wrap">
+        <span>🔠 Font Size</span>
+        <input
+          type="range"
+          id="font-size"
+          min="20"
+          max="150"
+          value="70"
+          step="10"
+        />
+        <span>🔠 Font Selection</span>
+        <select name="fonts" id="font-select" requried>
+          <option value="">--Please choose an option--</option>
+          <option value="Poppins" style="font-family: 'Poppins', sans-serif">
+            Poppins
+          </option>
+          <option value="Noto Serif" style="font-family: 'Noto Serif', serif">
+            Noto Serif
+          </option>
+          <option
+            value="Roboto Mono"
+            style="font-family: 'Roboto Mono', monospace"
+          >
+            Roboto Mono
+          </option>
+          <option value="Bitter" style="font-family: 'Bitter', serif">
+            Bitter
+          </option>
+          <option
+            value="Nanum Pen Script"
+            style="font-family: 'Nanum Pen Script', cursive"
+          >
+            Nanum Pen Script
+          </option>
+        </select>
+        <input type="text" placeholder="Add text here... :)" id="text" />
+      </div>
       <button id="save">📥 Save image</button>
     </div>
 

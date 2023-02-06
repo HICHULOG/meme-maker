@@ -1,3 +1,4 @@
+const fontSelect = document.getElementById("font-select");
 const saveBtn = document.getElementById("save");
 const textInput = document.getElementById("text");
 const fileInput = document.getElementById("file");
@@ -9,6 +10,7 @@ const colorOptions = Array.from(
 );
 const color = document.getElementById("color");
 const lineWidth = document.getElementById("line-width");
+const fontSize = document.getElementById("font-size");
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -95,12 +97,18 @@ function onFileChange(event) {
   };
 }
 
+function onFontSizeChange(event) {
+  ctx.fontSize = event.target.value;
+}
 function onDoubleClick(event) {
   const text = textInput.value;
+  let fontSizeChange = fontSize.value + "px";
+  let selectedFont = fontSelect.value;
+  console.log(selectedFont);
   if (text !== "") {
     ctx.save();
     ctx.lineWidth = 1;
-    ctx.font = "48px serif";
+    ctx.font = `${fontSizeChange} ${selectedFont}`;
     ctx.fillText(text, event.offsetX, event.offsetY);
     ctx.restore();
   }
@@ -122,6 +130,7 @@ canvas.addEventListener("mouseleave", cancelPainting);
 canvas.addEventListener("click", onCanvasClick);
 
 lineWidth.addEventListener("change", onLineWidthChange);
+fontSize.addEventListener("change", onFontSizeChange);
 color.addEventListener("change", onColorChange);
 
 colorOptions.forEach((color) => color.addEventListener("click", onColorClick));
